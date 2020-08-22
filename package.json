@@ -30,5 +30,16 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+    "standard": {
+      "globals": [
+        "it",
+        "expect",
+        "localStorage"
+      ]
+    },
+  "devDependencies": {
+    "customize-cra": "^1.0.0"
   }
+  
 }
