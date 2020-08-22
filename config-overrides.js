@@ -4,6 +4,6 @@ const path = require('path')
 module.exports = override(
   addWebpackAlias({
     '@components': path.resolve(__dirname, './src/components'),
-    '@reducers': path.resolve(__dirname, './src/reducers')
+    '@reducers': path.resolve(__dirname, './src/redux-flow/reducers')
   })
 )
