@@ -8,13 +8,16 @@
     "@testing-library/user-event": "^7.1.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
+    "react-redux": "^7.2.1",
+    "react-scripts": "3.4.3",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -31,15 +34,15 @@
       "last 1 safari version"
     ]
   },
-    "standard": {
-      "globals": [
-        "it",
-        "expect",
-        "localStorage"
-      ]
-    },
+  "standard": {
+    "globals": [
+      "it",
+      "expect",
+      "localStorage"
+    ]
+  },
   "devDependencies": {
-    "customize-cra": "^1.0.0"
+    "customize-cra": "^1.0.0",
+    "react-app-rewired": "^2.1.6"
   }
-  
 }
