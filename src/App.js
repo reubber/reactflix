@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import styled from 'styled-components'
 import GlobalStyle from './theme/globalStyle';
-import Play from '@components/play'
+import VideosList from '@components/videos-list'
 
 import 'normalize.css'
 import 'milligram'
@@ -27,29 +27,7 @@ function App() {
   const Container = styled.div`
     height: 100%
 `
-  const VideosList = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-`
-  const Video = styled.section`
-    flex: 1 1 300px;
-    margin: 0 5px 5px; 
-`
-  const VideoThumb = styled.div`
-    display: flex;
-    align-items: center;
-    border: 1px solid #999;
-    height: 150px;
-    justify-content: center;
-`
-const VideoTitle = styled.h2`
-    font-size: 18px;
-`
-const PlayStyled = styled(Play)`
-    fill: #999;
-    width: 150px;
-    height: 50px;
-`
+
   return (
     <Fragment>
       <GlobalStyle />
@@ -59,16 +37,7 @@ const PlayStyled = styled(Play)`
         </Header>
       
         <Main>
-          <VideosList>
-            {Array.from({ length:10 }).map((item, index) => (
-              <Video key={index}>
-                <VideoThumb>
-                  <PlayStyled />
-                </VideoThumb> 
-                <VideoTitle>Titulo do video</VideoTitle>
-              </Video>
-            ))}
-          </VideosList>
+          <VideosList />
         </Main>
 
         <Footer>
