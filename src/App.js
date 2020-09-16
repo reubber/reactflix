@@ -2,6 +2,7 @@ import React, {Fragment} from 'react';
 import styled from 'styled-components'
 import GlobalStyle from './theme/globalStyle';
 import VideosList from '@components/videos-list'
+import VideoSingle from '@components/video-single'
 
 import 'normalize.css'
 import 'milligram'
@@ -37,6 +38,7 @@ function App() {
         </Header>
       
         <Main>
+          <VideoSingle />
           <VideosList />
         </Main>
 
