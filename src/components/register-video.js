@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import { connect } from 'react-redux'
+import { registerVideo } from '@reducers/videos/action-creators'
 
-function RegisterVideo() {
+function RegisterVideo({ onSubmit }) {
   return (
-    <Form>
+    <Form onSubmit={onSubmit}>
       <h2>cadastrar video</h2>
       <label htmlFor='id'>id do video</label>
       <input type='text' id='id' name='id' />
@@ -18,4 +20,19 @@ function RegisterVideo() {
 const Form = styled.form`
 padding: 10px;
 `
-export default RegisterVideo
+const mapDispatchToProps = (dispatch) => ({
+  onSubmit: async (e) => {
+    e.preventDefault()
+    e.persist()
+
+    const { id, title } = e.target
+
+    await dispatch(registerVideo({
+      id: id.value,
+      title: title.value
+    }))
+    e.target.reset()
+    e.target[0].focus()
+  }
+})
+export default connect(null, mapDispatchToProps)(RegisterVideo)
