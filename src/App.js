@@ -1,48 +1,37 @@
 import React, {Fragment} from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components'
 import GlobalStyle from './theme/globalStyle';
+import Header from '@components/header';
+import MainFooter from '@components/footer'
 import VideosList from '@components/videos-list'
 import VideoSingle from '@components/video-single'
 import RegisterVideo from '@components/register-video'
+import { headerHeight, footerHeight } from '@utils/constants'
 
 import 'normalize.css'
 import 'milligram'
 
 
-function App() {
+function App({ isRegisterVideoFormOpened }) {
   return (
     <Fragment>
       <GlobalStyle />
       <Container>
-        <Header>
-          <h1>Reactflix</h1>
-        </Header>
+        <Header />
       
         <Main>
-          <RegisterVideo />
+          {isRegisterVideoFormOpened && <RegisterVideo />}
           <VideoSingle />
           <VideosList />
         </Main>
 
-        <Footer>
-          &copy;2020
-        </Footer>
+        <MainFooter />
       </Container> 
     </Fragment>
   )
 }
-  const headerHeight='60px'
-  const footerHeight='30px'
 
-  const Header = styled.header`
-    height: ${headerHeight};
-    background: #333;
-    padding: 0 10px;
-`
-  const Footer = styled.footer`
-    height: ${footerHeight};
-    background: #333;
-`
   const Main = styled.main`
     min-height: calc(100% - ${headerHeight} - ${footerHeight});
     background: pink;
@@ -50,5 +39,8 @@ function App() {
   const Container = styled.div`
     height: 100%
 `
+const mapStateToProps = (state) => ({
+  isRegisterVideoFormOpened: state.ui.isRegisterVideoFormOpened,
+})
 
-export default App;
+export default connect(mapStateToProps)(App);
